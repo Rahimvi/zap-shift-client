@@ -2,7 +2,7 @@
 
 Zap-Shift is a modern, responsive, and efficient parcel delivery and logistics management web application. It connects users, delivery riders, and administrators seamlessly to handle parcel bookings, real-time status updates, tracking, and secure payments.
 
-🌐 **Live Website:** [Profast / Zap-Shift Live](https://zap-shift-server-ghxvnz4u6-rahimvis-projects.vercel.app/) _(Replace with your actual client live link)_ 🖥️ **Server Repository:** [Zap-Shift Server](https://github.com/Rahimvi/zap-shift-server) _(Replace with your actual server repo link if public)_
+🌐 **Live Website:** [Profast / Zap-Shift Live](https://zap-shift-27c81.web.app/) _(Replace with your actual client live link)_ 🖥️ **Server Repository:** [Zap-Shift Server](https://github.com/Rahimvi/zap-shift-server) _(Replace with your actual server repo link if public)_
 
 ---
 
