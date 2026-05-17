@@ -1,0 +1,48 @@
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import { useParams } from "react-router";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+
+const Payment = () => {
+  const { parcelId } = useParams();
+  const axiosSecure = useAxiosSecure();
+  const { isLoading, data: parcel } = useQuery({
+    queryKey: ["parcels", parcelId],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/parcels/${parcelId}`);
+      return res.data;
+    },
+  });
+
+  const handlePayment = async () => {
+    const paymentInfo = {
+      cost: parcel.cost,
+      parcelId: parcel._id,
+      senderEmail: parcel.senderEmail,
+      parcelName: parcel.parcelName,
+    };
+    const res = await axiosSecure.post("/create-checkout-session", paymentInfo);
+    console.log(res.data);
+    window.location.href = res.data.url;
+  };
+
+  if (isLoading) {
+    return (
+      <div className="text-center mt-20 mb-10">
+        <span className="loading loading-infinity loading-xl w-24 bg-[#c9eb65]"></span>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <h2>
+        Please for ${parcel.cost} {parcel.parcelName}
+      </h2>
+      <button onClick={handlePayment} className="btn bg-[#c9eb65] text-black">
+        Pay
+      </button>
+    </div>
+  );
+};
+
+export default Payment;
